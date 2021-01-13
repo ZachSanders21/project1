@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
+using PizzaBox.Domain.Models;
+using PizzaBox.Storing;
 
 namespace PizzaBox.Client.Models
 {
@@ -14,26 +18,21 @@ namespace PizzaBox.Client.Models
         [Range(1,50)]
         public List<string> PizzaSelection { get; set; }
 
-        public OrderViewModel()
-        { 
-            Pizzas = new List<string>
-            {
-                "pizza1",
-                "pizza2",
-                "pizza3",
-                "pizza4"
-            };
-            Stores = new List<string>
-            {
-                "one",
-                "two",
-                "three",
-                "four"
-            };
-           
 
-            PizzaSelection = new List<string>();
+        // public OrderViewModel()
+        // {
+        //     Stores = _ctx.Stores.Select(s => s.Name).ToList();
+            
+        //     Pizzas = new List<string>
+        //     {
+        //         "pizza1",
+        //         "pizza2",
+        //         "pizza3",
+        //         "pizza4"
+        //     };
 
-        }
+        //     PizzaSelection = new List<string>();
+
+        // }
     }
 }

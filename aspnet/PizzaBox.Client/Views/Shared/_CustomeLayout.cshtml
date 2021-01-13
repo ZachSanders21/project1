@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <Header class="row">
+            <h1>PizzaBox</h1>
+            <nav></nav>
+        </Header>
+
+        <main class="row">
+            @RenderBody()
+        </main>
+
+        <footer class="row">
+            <small>&copy Zach Sanders 20201</small>
+        </footer>
+
+    </div>
+
+    
+</body>
+</html>

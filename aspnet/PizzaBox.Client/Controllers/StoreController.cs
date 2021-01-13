@@ -1,12 +1,19 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using PizzaBox.Client.Models;
+using PizzaBox.Storing;
 
 namespace PizzaBox.Client.Controllers
 {
     [Route("[controller]")]
     public class StoreController : Controller
     {
+        private PizzaBoxContext _ctx;
+        public StoreController(PizzaBoxContext context)
+        {
+            _ctx = context;
+        }
         [HttpGet]
         public IActionResult Get()
         {
