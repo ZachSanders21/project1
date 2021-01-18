@@ -5,8 +5,17 @@
 }
 
 <section>
-   @Model.Name
+   <form asp-action="UserView" asp-controller="customer" asp-antiforgery="true" method="POST">
+    @foreach (var item in Model.Names)
+    {
+        <input name="username" type="radio" asp-for="@Model.Names" value="@item">
+        <label for="@item">@item</label>
+    }
+    <button type="submit">Select User</button>
+   </form>
+   <form asp-action="usersubmit" asp-controller="customer" asp-antiforgery="true" method="POST">
+    New User
+    <input type="text" name="username" id="username">
+    <button type="submit">Create User</button>
+   </form>
 </section>
-
-
-@Html.Partial("Order", Model.Order)

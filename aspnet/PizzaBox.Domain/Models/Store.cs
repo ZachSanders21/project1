@@ -13,6 +13,11 @@ namespace PizzaBox.Domain.Models
         {
             Orders = new List<Order>();
         }
+        public Store(string name)
+        {
+            Orders = new List<Order>();
+            Name = name;
+        }
 
         public void CreateOrder()
         {

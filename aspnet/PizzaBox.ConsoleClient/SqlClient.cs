@@ -10,7 +10,7 @@ namespace PizzaBox.ConsoleClient
 {
     public class SqlClient
     {
-        private readonly PizzaBoxContext _db = new PizzaBoxContext();
+        private readonly PizzaBoxContext _db;
 
         public IEnumerable<Store> ReadStores()
         {

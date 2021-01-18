@@ -1,21 +1,20 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using PizzaBox.Domain.Abstracts;
+using PizzaBox.Domain.Models;
 
 namespace PizzaBox.Client.Models
 {
     public class StoreViewModel
     {
-        public List<string> temps { get; set; }
+        public OrderViewModel Order { get; set; }
+        public string Name { get; set; }
         
-        public StoreViewModel()
-        {
-            temps = new List<string>()
-            {
-                "One",
-                "Two",
-                "Three",
-                "Four"
-            };
-        }
+        // public StoreViewModel()
+        // {
+        //     Stores = new List<Store>();
+        // }
+        
     }
+    
 }

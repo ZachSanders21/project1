@@ -1,7 +1,7 @@
 @model PizzaBox.Client.Models.StoreViewModel
 
 <ul>
-@foreach (var store in Model.temps)
+@foreach (var store in Model.Order.Stores)
 {
     <li>@store</li>    
 }

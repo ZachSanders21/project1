@@ -1,0 +1,26 @@
+@model PizzaBox.Client.Models.CustomerViewModel
+
+<section>
+    User Selected
+    Current User: @Model.Name
+</section>
+
+@Html.Partial("StoreSelect")
+
+<Section>
+    Order History
+    
+    @foreach (var item in Model.Order.OrderHistory)
+    {
+        <p>
+            Store: @item.Store.Name 
+        </p>
+        <p>
+            User: @item.User.Username
+        </p>
+        <p>
+            Price: $@item.TotalPrice
+        </p>
+       
+    }
+</Section>

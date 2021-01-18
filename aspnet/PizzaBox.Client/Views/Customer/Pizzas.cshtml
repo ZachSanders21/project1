@@ -1,0 +1,9 @@
+@model PizzaBox.Client.Models.CustomerViewModel
+
+<form asp-action="post" asp-controller="customer" asp-antiforgery="true" method="POST">
+    @foreach (var item in Model.Order.Pizzas)
+    {
+        <input type="radio" asp-for="@Model.Order.Pizzas" value="@item">
+        <label for="@item">@item</label>
+    }
+</form>

@@ -9,6 +9,7 @@ namespace PizzaBox.Client.Models
 {
     public class OrderViewModel
     {
+        public List<string> Names { get; set; }
         public List<string> Stores { get; set; }
         public List<string> Pizzas { get; set; }
 
@@ -16,23 +17,28 @@ namespace PizzaBox.Client.Models
         public string Store { get; set; }
         [Required]
         [Range(1,50)]
-        public List<string> PizzaSelection { get; set; }
+        public string PizzaSelection { get; set; }
+        public IEnumerable<Order> OrderHistory { get; set; }
 
 
-        // public OrderViewModel()
-        // {
-        //     Stores = _ctx.Stores.Select(s => s.Name).ToList();
+        public OrderViewModel()
+        {
+            Stores = new List<string>
+            {
+                "first",
+                "second",
+                "third"
+            };
             
-        //     Pizzas = new List<string>
-        //     {
-        //         "pizza1",
-        //         "pizza2",
-        //         "pizza3",
-        //         "pizza4"
-        //     };
+            Pizzas = new List<string>
+            {
+                "pizza1",
+                "pizza2",
+                "pizza3",
+                "pizza4"
+            };
 
-        //     PizzaSelection = new List<string>();
 
-        // }
+        }
     }
 }
