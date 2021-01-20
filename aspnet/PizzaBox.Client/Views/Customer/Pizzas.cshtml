@@ -1,9 +1,29 @@
 @model PizzaBox.Client.Models.CustomerViewModel
+@{
+    ViewBag.Title = "Customer - Current";
+    Layout = "_CustomerLayout";
+}
 
-<form asp-action="post" asp-controller="customer" asp-antiforgery="true" method="POST">
-    @foreach (var item in Model.Order.Pizzas)
+@Html.Partial("CreateOrder")
+View Current Order
+
+<section>
+    @foreach (var pizza in Model.Order.CurrentOrder.Pizzas)
     {
-        <input type="radio" asp-for="@Model.Order.Pizzas" value="@item">
-        <label for="@item">@item</label>
+        <p>
+            Pizza: @pizza.ToString()
+        </p>
+        <p>
+            Crust: @pizza.Crust
+        </p>
+        <p>
+            Size: @pizza.Size
+        </p>
     }
-</form>
+    <p>
+    Current Price: $@Model.Order.CurrentOrder.TotalPrice
+    </p>
+    <form asp-action="Checkout" asp-controller="customer" asp-antiforgery="true" method="POST">
+        <button type="submit">Finish Order</button>
+    </form>
+</section>

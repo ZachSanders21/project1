@@ -15,15 +15,15 @@ namespace PizzaBox.Domain.Models
         public Size(string name)
         {
             Name = name;
-            if (name == "Small")
+            if (name.Equals("Small"))
             {
                 Price = 0;
             }
-            else if (name == "Medium")
+            else if (name.Equals("Medium"))
             {
                 Price = 2;
             }
-            else if (name == "Large")
+            else if (name.Equals("Large"))
             {
                 Price = 4;
             }

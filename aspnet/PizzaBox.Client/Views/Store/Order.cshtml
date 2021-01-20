@@ -1,0 +1,24 @@
+@model PizzaBox.Client.Models.StoreViewModel
+@{
+    ViewBag.Title = "Customer - Home";
+    Layout = "_CustomerLayout";
+}
+@Html.Partial("StoreView")
+
+<p>
+    Store: @Model.Name
+</p>
+<section>
+    @foreach (var order in Model.Order.OrderHistory)
+    {
+        <p>
+            User: @order.User.Username
+        </p>
+        <p>
+            Price: $@order.TotalPrice
+        </p>
+        <p>
+            Time of Order: @order.DateModifier
+        </p>
+    }
+</section>

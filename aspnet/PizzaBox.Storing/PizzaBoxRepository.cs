@@ -10,10 +10,6 @@ namespace PizzaBox.Storing
     public class PizzaBoxRepository
     {
         private PizzaBoxContext _ctx;
-        public User user { get; set; }
-        public Store store { get; set; }
-        public Order order { get; set; }
-        
 
         public PizzaBoxRepository(PizzaBoxContext context)
         {
@@ -60,5 +56,19 @@ namespace PizzaBox.Storing
         {
             return _ctx.Orders.Where(s => s.User == user).Include(s => s.Store); 
         }
+        public void Update()
+        {
+
+            _ctx.SaveChanges();
+        }
+        public IEnumerable<Order> StoreOrderHistory(Store store)
+        {
+            return _ctx.Orders.Where(s => s.Store == store).Include(s => s.User);
+        }
+        // public Order GetOrderLast()
+        // {
+        //     return _ctx.Orders.Where
+        // }
+
     }
 }

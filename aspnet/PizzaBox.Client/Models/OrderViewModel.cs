@@ -12,6 +12,7 @@ namespace PizzaBox.Client.Models
         public List<string> Names { get; set; }
         public List<string> Stores { get; set; }
         public List<string> Pizzas { get; set; }
+        public PizzaViewModel Pizza { get; set; }
 
         [Required]
         public string Store { get; set; }
@@ -19,6 +20,7 @@ namespace PizzaBox.Client.Models
         [Range(1,50)]
         public string PizzaSelection { get; set; }
         public IEnumerable<Order> OrderHistory { get; set; }
+        public Order CurrentOrder { get; set; }
 
 
         public OrderViewModel()
@@ -29,14 +31,8 @@ namespace PizzaBox.Client.Models
                 "second",
                 "third"
             };
-            
-            Pizzas = new List<string>
-            {
-                "pizza1",
-                "pizza2",
-                "pizza3",
-                "pizza4"
-            };
+
+            Pizza = new PizzaViewModel();
 
 
         }

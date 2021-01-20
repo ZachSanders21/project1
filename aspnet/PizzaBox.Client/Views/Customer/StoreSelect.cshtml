@@ -1,5 +1,8 @@
 @model PizzaBox.Client.Models.CustomerViewModel
-
+@{
+    ViewBag.Title = "Customer - Store";
+    Layout = "_CustomerLayout";
+}
 <form asp-action="SelectPizza" asp-controller="customer" asp-antiforgery="true" method="POST">
     @foreach (var item in Model.Order.Stores)
     {
@@ -7,4 +10,7 @@
         <label for="@item">@item</label>
     }
     <button type="submit">Select Store</button>
+</form>
+<form asp-action="home" asp-controller="Home" asp-antiforgery="true" method="GET">
+    <button type="submit">Cancel Order</button>
 </form>

@@ -14,7 +14,7 @@ namespace PizzaBox.Domain.Models
         public User User { get; set; }
         public Store Store { get; set; }
         public DateTime DateModifier { get; set; }
-        public long StoreEntityId { get; set; }
+        // public long StoreEntityId { get; set; }
         public Order()
         {
             Pizzas = new List<APizzaModel>();

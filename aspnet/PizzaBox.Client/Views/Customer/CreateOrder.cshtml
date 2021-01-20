@@ -1,8 +1,42 @@
 @model PizzaBox.Client.Models.CustomerViewModel
-
-<form asp-action="CreatePizza" asp-controller="customer" asp-antiforgery="true" method="POST">    
-    @foreach (var item in Model.Order.Pizzas)
+@{
+    ViewBag.Title = "Customer - Order";
+    Layout = "_CustomerLayout";
+}
+<form asp-action="CreateOrder" asp-controller="customer" asp-antiforgery="true" method="POST">
+    <section>
+        <p>
+        Select Pizza
+        </p>
+       @foreach (var item in Model.Order.Pizzas)
+        {
+            <input name="pizzatype" type="radio" asp-for="@Model.Order.Pizzas" value="@item">
+            <label for="@item">@item</label>
+        } 
+    </section>    
+    <section>
+        <p>
+        Select Crust Flavor
+        </p>
+    @foreach (var item in Model.Order.Pizza.Crusts)
     {
-        
+        <input name="crust" type="radio" asp-for="@Model.Order.Pizza.Crusts" value="@item">
+        <label for="@item">@item</label>
     }
+    </section>
+    <section>
+        <p>
+        Select Size
+        </p>
+    @foreach (var item in Model.Order.Pizza.Sizes)
+    {
+        <input name="sizename" type="radio" asp-for="@Model.Order.Pizza.Sizes" value="@item">
+        <label for="@item">@item</label>
+    }
+    </section>
+    <button type="submit">Submit Pizza</button>
+</form>
+
+<form asp-action="home" asp-controller="Home" asp-antiforgery="true" method="GET">
+    <button type="submit">Cancel Order</button>
 </form>

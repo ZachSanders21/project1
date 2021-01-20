@@ -5,7 +5,7 @@
 }
 
 <section>
-   <form asp-action="UserView" asp-controller="customer" asp-antiforgery="true" method="POST">
+   <form asp-action="UserView" asp-controller="customer" asp-antiforgery="true" method="POST" >
     @foreach (var item in Model.Names)
     {
         <input name="username" type="radio" asp-for="@Model.Names" value="@item">
@@ -17,5 +17,8 @@
     New User
     <input type="text" name="username" id="username">
     <button type="submit">Create User</button>
+   </form>
+   <form asp-action="Home" asp-controller="Home" asp-antiforgery="true" method="GET">
+    <button type="submit">Cancel Order</button>
    </form>
 </section>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PizzaBox.Storing.Migrations
 {
-    public partial class initial : Migration
+    public partial class finalupdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -76,18 +76,18 @@ namespace PizzaBox.Storing.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TotalPrice = table.Column<double>(type: "float", nullable: false),
                     UserEntityID = table.Column<long>(type: "bigint", nullable: true),
-                    StoreEntityID = table.Column<long>(type: "bigint", nullable: true),
-                    DateModifier = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateModifier = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StoreEntityId = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.EntityID);
                     table.ForeignKey(
-                        name: "FK_Orders_Stores_StoreEntityID",
-                        column: x => x.StoreEntityID,
+                        name: "FK_Orders_Stores_StoreEntityId",
+                        column: x => x.StoreEntityId,
                         principalTable: "Stores",
                         principalColumn: "EntityID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserEntityID",
                         column: x => x.UserEntityID,
@@ -173,9 +173,9 @@ namespace PizzaBox.Storing.Migrations
                 column: "ToppingsEntityID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_StoreEntityID",
+                name: "IX_Orders_StoreEntityId",
                 table: "Orders",
-                column: "StoreEntityID");
+                column: "StoreEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserEntityID",

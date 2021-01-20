@@ -1,0 +1,18 @@
+@model PizzaBox.Client.Models.StoreViewModel
+@{
+    ViewBag.Title = "Customer - Home";
+    Layout = "_CustomerLayout";
+}
+@Html.Partial("TimeView")
+
+<p>
+    Store: @Model.Name
+</p>
+<section>
+        <p>
+            Price: $@Model.TotalPrice
+        </p>
+        <p>
+            Orders: @Model.TotalOrders
+        </p>
+</section>

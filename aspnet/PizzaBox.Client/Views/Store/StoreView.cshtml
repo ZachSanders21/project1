@@ -1,0 +1,27 @@
+@model PizzaBox.Client.Models.StoreViewModel
+@{
+    ViewBag.Title = "Customer - Home";
+    Layout = "_CustomerLayout";
+}
+<form asp-action="storechoice" asp-controller="store" asp-antiforgery="true" method="POST">
+    <p>
+        Select Store
+    </p>
+    @foreach (var item in Model.Names)
+    {
+        <input name="storename" type="radio" asp-for="@Model.Names" value="@item" required>
+            <label for="@item">@item</label>
+    }
+    <p>
+        Select View
+    </p>
+    @foreach (var item in Model.Options)
+    {
+        <input name="option" type="radio" asp-for="@Model.Options" value="@item" required>
+            <label for="@item">@item</label>
+    }
+    <button type="submit">Submit Selection</button>
+    <form asp-action="home" asp-controller="Home" asp-antiforgery="true" method="GET">
+    <button type="submit">Home</button>
+    </form>
+</form>

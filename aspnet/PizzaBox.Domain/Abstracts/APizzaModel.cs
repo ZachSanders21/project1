@@ -40,7 +40,7 @@ namespace PizzaBox.Domain.Abstracts
         }
         public override string ToString()
         {
-            return $"{Size} {GetPizzaName()}";
+            return $"{GetPizzaName()}";
         }
 
 

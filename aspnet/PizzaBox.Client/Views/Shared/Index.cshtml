@@ -1,0 +1,18 @@
+﻿@model PizzaBox.Client.Models.HomeViewModel
+@{
+    ViewBag.Title = "Customer - Home";
+    Layout = "_CustomerLayout";
+}
+
+<form asp-action="home" asp-controller="customer" asp-antiforgery="true" method="GET">
+    <p>
+        If you're a customer please click here
+    </p>
+    <button type="submit">Customer</button>
+</form>
+<form asp-action="home" asp-controller="store" asp-antiforgery="true" method="GET">
+    <p>
+        If you're a store admin please click here
+    </p>
+    <button type="submit">Store</button>
+</form>

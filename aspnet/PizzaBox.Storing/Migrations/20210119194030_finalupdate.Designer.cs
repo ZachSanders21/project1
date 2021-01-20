@@ -10,8 +10,8 @@ using PizzaBox.Storing;
 namespace PizzaBox.Storing.Migrations
 {
     [DbContext(typeof(PizzaBoxContext))]
-    [Migration("20210112174749_initial")]
-    partial class initial
+    [Migration("20210119194030_finalupdate")]
+    partial class finalupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,7 +71,7 @@ namespace PizzaBox.Storing.Migrations
                     b.Property<DateTime>("DateModifier")
                         .HasColumnType("datetime2");
 
-                    b.Property<long?>("StoreEntityID")
+                    b.Property<long>("StoreEntityId")
                         .HasColumnType("bigint");
 
                     b.Property<double>("TotalPrice")
@@ -82,7 +82,7 @@ namespace PizzaBox.Storing.Migrations
 
                     b.HasKey("EntityID");
 
-                    b.HasIndex("StoreEntityID");
+                    b.HasIndex("StoreEntityId");
 
                     b.HasIndex("UserEntityID");
 
@@ -204,7 +204,9 @@ namespace PizzaBox.Storing.Migrations
                 {
                     b.HasOne("PizzaBox.Domain.Models.Store", "Store")
                         .WithMany("Orders")
-                        .HasForeignKey("StoreEntityID");
+                        .HasForeignKey("StoreEntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PizzaBox.Domain.Models.User", "User")
                         .WithMany("Orders")
